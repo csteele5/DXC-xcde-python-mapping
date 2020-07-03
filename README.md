@@ -18,6 +18,6 @@ This repository is a complete virtual environment set up to run within PyCharm f
 		`python -m pip install xlrd`
 
 	
-To define what excel file to use open the file *createjson_gen.py* and change line 10.
+All configuration Excel files must be added to the processqueue folder for processing.
 
 To run the script, open the command prompt and execute "python3 createjson_gen.py" from the same directory as the createjson_gen.py file.
