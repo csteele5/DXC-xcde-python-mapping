@@ -6,7 +6,8 @@ This python utility program parses the contents of specific mapping configuratio
 
 ## IDE
 
-This repository is a complete virtual environment set up to run within PyCharm for development. All commits to GitHub are performed through PyCharm vs terminal.
+This repository is a complete virtual environment set up to run within PyCharm for development. 
+Initial creation of repository on GitHub was created through PyCharm, however the repo updates occur from terminal.
 
 ## Prerequisites to run native
 
