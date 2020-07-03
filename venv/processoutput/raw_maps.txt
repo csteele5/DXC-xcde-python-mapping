@@ -1,0 +1,2112 @@
+[
+    {
+        "mapping": {
+            "details": {
+                "sourceItemIdAttribute": "global_id",
+                "sourceItemNameAttribute": "display_label",
+                "sourceItemTypeAttribute": "root_class"
+            },
+            "map": [
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated>",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "concatenation",
+                            "name": "discovery_source",
+                            "required": false,
+                            "solution": "servicenow",
+                            "values": [
+                                {
+                                    "type": "constant",
+                                    "value": "UCMDB"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "name",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "name",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "hp_leg_srl_nbr",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "asset_tag",
+                            "required": true,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated>",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "concatenation",
+                            "name": "sys_domain",
+                            "required": true,
+                            "solution": "servicenow",
+                            "values": [
+                                {
+                                    "type": "constant",
+                                    "value": "CSC-I"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "hp_leg_ci_lgcl_nm",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "fqdn",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "name",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "cpu_name",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "name"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "name",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "composition"
+                            },
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "discovered_os_version",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "os_version",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "boolean",
+                    "elementType": "attribute",
+                    "name": "host_isvirtual",
+                    "targets": [
+                        {
+                            "datatype": "boolean",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "virtual",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "integer",
+                    "elementType": "attribute",
+                    "name": "memory_size",
+                    "targets": [
+                        {
+                            "datatype": "integer",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "ram",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "",
+                    "elementType": "attribute",
+                    "name": "cpu_clock_speed",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "cpu_speed",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "cpu_clock_speed"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_clock_speed",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "composition"
+                            },
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "cpu_type",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "cpu_type",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "cpu_type"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_type",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "composition"
+                            },
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "cpu_vendor",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "cpu_manufacturer",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "cpu_vendor"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "cpu_vendor",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "composition"
+                            },
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "",
+                    "elementType": "attribute",
+                    "name": "logical_cpu_count",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "cpu_core_count",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "logical_cpu_count"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "logical_cpu_count",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "composition"
+                            },
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated>",
+                    "targets": [
+                        {
+                            "context": "relationship",
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "formula": "sumType",
+                            "mapType": "calculation",
+                            "matchChildItemType": "cpu",
+                            "matchRelType": "composition",
+                            "name": "cpu_count",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "domain_name",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "os_domain",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "vendor",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "vendor",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "global_id",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "correlation_id",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "hp_ci_stat_nm",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "list",
+                            "name": "install_status",
+                            "options": [
+                                {
+                                    "sourceValue": "Active",
+                                    "targetValue": "Installed"
+                                },
+                                {
+                                    "sourceValue": "Build",
+                                    "targetValue": "Pending Install"
+                                },
+                                {
+                                    "sourceValue": "Release",
+                                    "targetValue": "Pending Install"
+                                },
+                                {
+                                    "sourceValue": "Decommision in Place",
+                                    "targetValue": "Installed"
+                                },
+                                {
+                                    "sourceValue": "Decommision",
+                                    "targetValue": "Pending Transfer"
+                                },
+                                {
+                                    "sourceValue": "In Proposal",
+                                    "targetValue": "Pending Install"
+                                },
+                                {
+                                    "sourceValue": "Cancelled",
+                                    "targetValue": "Retired"
+                                },
+                                {
+                                    "sourceValue": "Move to Obsolescence",
+                                    "targetValue": "Installed"
+                                }
+                            ],
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "hp_envrmt_type_nm",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "list",
+                            "name": "u_used_for",
+                            "options": [
+                                {
+                                    "sourceValue": "Development",
+                                    "targetValue": "Development"
+                                },
+                                {
+                                    "sourceValue": "Disaster recovery",
+                                    "targetValue": "Disaster recovery"
+                                },
+                                {
+                                    "sourceValue": "Development",
+                                    "targetValue": "Development"
+                                },
+                                {
+                                    "sourceValue": "Production",
+                                    "targetValue": "Production"
+                                },
+                                {
+                                    "sourceValue": "Staging",
+                                    "targetValue": "Staging"
+                                }
+                            ],
+                            "required": true,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "hp_leg_srl_nbr",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "serial_number",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "node_model",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "model_id",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated>",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "manufacturer",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "name"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "name",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "hpmanufacturer"
+                            },
+                            "required": true,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "hp_product_code_txt",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "model_number",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated>",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "support_group",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "name"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "name",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "hp_first_level_support_for"
+                            },
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "Find location Ci and relationship between location and CI",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "derived",
+                            "name": "location",
+                            "relation": {
+                                "current": "child",
+                                "idAttribute": "root_class",
+                                "map": {
+                                    "mapType": "direct",
+                                    "name": "name"
+                                },
+                                "options": [
+                                    {
+                                        "attribute": "name",
+                                        "condition": ""
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpcrct"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "firewall"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "lb"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpproxy"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "router"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "nt"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "vmware_esx_server"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "unix"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "host_node"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "switch"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "enclosure"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "terminalserver"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "hpvoicegateway"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "netdevice"
+                                    },
+                                    {
+                                        "attribute": "name",
+                                        "condition": "ip_address"
+                                    }
+                                ],
+                                "type": "membership"
+                            },
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "Find organization CI and  relationship between organization  and the CI",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "department",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "name",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "ciName",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "global_id",
+                    "targets": [
+                        {
+                            "datatype": "guid",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "ci_id",
+                            "required": true,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated>",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "concatenation",
+                            "name": "company",
+                            "required": false,
+                            "solution": "servicenow",
+                            "values": [
+                                {
+                                    "type": "constant",
+                                    "value": "DXC Internal"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "root_class",
+                    "targets": [
+                        {
+                            "condition": {
+                                "else": {
+                                    "idAttribute": "root_class",
+                                    "mapType": "list",
+                                    "options": [
+                                        {
+                                            "sourceValue": "hpcrct",
+                                            "targetValue": "cmdb_ci_circuit"
+                                        },
+                                        {
+                                            "sourceValue": "firewall",
+                                            "targetValue": "cmdb_ci_firewall_network"
+                                        },
+                                        {
+                                            "sourceValue": "lb",
+                                            "targetValue": "cmdb_ci_lb"
+                                        },
+                                        {
+                                            "sourceValue": "hpproxy",
+                                            "targetValue": "cmdb_ci_netgear"
+                                        },
+                                        {
+                                            "sourceValue": "router",
+                                            "targetValue": "cmdb_ci_ip_router"
+                                        },
+                                        {
+                                            "sourceValue": "nt",
+                                            "targetValue": "cmdb_ci_win_server"
+                                        },
+                                        {
+                                            "sourceValue": "vmware_esx_server",
+                                            "targetValue": "cmdb_ci_esx_server"
+                                        },
+                                        {
+                                            "sourceValue": "host_node",
+                                            "targetValue": "cmdb_ci_server"
+                                        },
+                                        {
+                                            "sourceValue": "switch",
+                                            "targetValue": "cmdb_ci_ip_switch"
+                                        },
+                                        {
+                                            "sourceValue": "enclosure",
+                                            "targetValue": "cmdb_ci_rack"
+                                        },
+                                        {
+                                            "sourceValue": "terminalserver",
+                                            "targetValue": "cmdb_ci_terminal_server"
+                                        },
+                                        {
+                                            "sourceValue": "hpvoicegateway",
+                                            "targetValue": "cmdb_ci_netgear"
+                                        },
+                                        {
+                                            "sourceValue": "ip_address",
+                                            "targetValue": "cmdb_ci_ip_address"
+                                        }
+                                    ]
+                                },
+                                "if": "root_class",
+                                "in": [
+                                    "unix"
+                                ],
+                                "then": {
+                                    "idAttribute": "hp_leg_os_class_nm",
+                                    "mapType": "list",
+                                    "options": [
+                                        {
+                                            "sourceValue": "hp-ux",
+                                            "targetValue": "cmdb_ci_unix_server"
+                                        },
+                                        {
+                                            "sourceValue": "linux",
+                                            "targetValue": "cmdb_ci_linux_server"
+                                        }
+                                    ]
+                                }
+                            },
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "conditional",
+                            "name": "sys_class_name",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "array",
+                    "elementType": "attribute",
+                    "name": "<calculated netdevice>",
+                    "targets": [
+                        {
+                            "condition": {
+                                "else": {
+                                    "mapType": "skip"
+                                },
+                                "if": "root_class",
+                                "in": [
+                                    "netdevice"
+                                ],
+                                "then": {
+                                    "idAttribute": "node_role",
+                                    "mapType": "list",
+                                    "options": [
+                                        {
+                                            "sourceValue": "intrusion_detection_system",
+                                            "targetValue": "cmdb_ci_netgear"
+                                        },
+                                        {
+                                            "sourceValue": "pbx",
+                                            "targetValue": "cmdb_ci_netgear"
+                                        },
+                                        {
+                                            "sourceValue": "san_array",
+                                            "targetValue": "cmdb_ci_san"
+                                        },
+                                        {
+                                            "sourceValue": "san_switch",
+                                            "targetValue": "cmdb_ci_storage_switch"
+                                        },
+                                        {
+                                            "sourceValue": "tape_library",
+                                            "targetValue": "cmdb_ci_san"
+                                        },
+                                        {
+                                            "sourceValue": "wireless_access_point",
+                                            "targetValue": "cmdb_ci_wap_network"
+                                        }
+                                    ]
+                                }
+                            },
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "conditional",
+                            "name": "sys_class_name",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "array",
+                    "elementType": "attribute",
+                    "name": "<calculated node_role>",
+                    "targets": [
+                        {
+                            "condition": {
+                                "else": {
+                                    "mapType": "skip"
+                                },
+                                "if": "root_class",
+                                "in": [
+                                    "netdevice"
+                                ],
+                                "then": {
+                                    "idAttribute": "node_role",
+                                    "mapType": "list",
+                                    "options": [
+                                        {
+                                            "sourceValue": "intrusion_detection_system",
+                                            "targetValue": "Intrusion Detection System"
+                                        },
+                                        {
+                                            "sourceValue": "pbx",
+                                            "targetValue": "pbx"
+                                        }
+                                    ]
+                                }
+                            },
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "conditional",
+                            "name": "device_type",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "hp_leg_os_class_nm",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "list",
+                            "name": "os",
+                            "options": [
+                                {
+                                    "sourceValue": "LINUX",
+                                    "targetValue": "Linux"
+                                },
+                                {
+                                    "sourceValue": "aix",
+                                    "targetValue": "AIX"
+                                },
+                                {
+                                    "sourceValue": "hp-ux",
+                                    "targetValue": "HP/UX"
+                                },
+                                {
+                                    "sourceValue": "linux",
+                                    "targetValue": "Linux"
+                                },
+                                {
+                                    "sourceValue": "solaris",
+                                    "targetValue": "Solaris"
+                                },
+                                {
+                                    "sourceValue": "vms",
+                                    "targetValue": "OpenVMS"
+                                },
+                                {
+                                    "sourceValue": "vmware",
+                                    "targetValue": "VMware"
+                                },
+                                {
+                                    "sourceValue": "windows",
+                                    "targetValue": "Windows"
+                                }
+                            ],
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "array",
+                    "elementType": "attribute",
+                    "name": "<calculated hpproxy>",
+                    "targets": [
+                        {
+                            "condition": {
+                                "else": {
+                                    "mapType": "skip"
+                                },
+                                "if": "root_class",
+                                "in": [
+                                    "hpproxy"
+                                ],
+                                "then": {
+                                    "idAttribute": "root_class",
+                                    "mapType": "list",
+                                    "options": [
+                                        {
+                                            "sourceValue": "hpproxy",
+                                            "targetValue": "Proxy"
+                                        }
+                                    ]
+                                }
+                            },
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "conditional",
+                            "name": "device_type",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "ip_address",
+                    "targets": [
+                        {
+                            "datatype": "",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "ip_address",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated cmdb_ci >",
+                    "targets": [
+                        {
+                            "condition": {
+                                "else": {
+                                    "mapType": "skip"
+                                },
+                                "if": "root_class",
+                                "in": [
+                                    "ip_address"
+                                ],
+                                "then": {
+                                    "mapType": "derived",
+                                    "relation": {
+                                        "current": "child",
+                                        "idAttribute": "root_class",
+                                        "map": {
+                                            "mapType": "direct"
+                                        },
+                                        "options": [
+                                            {
+                                                "attribute": "name",
+                                                "condition": ""
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "hpcrct"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "firewall"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "lb"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "hpproxy"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "router"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "nt"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "vmware_esx_server"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "unix"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "host_node"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "switch"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "enclosure"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "terminalserver"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "hpvoicegateway"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "ip_address"
+                                            }
+                                        ],
+                                        "type": "containment"
+                                    }
+                                }
+                            },
+                            "datatype": "",
+                            "endpoint": "attributes",
+                            "mapType": "conditional",
+                            "name": "cmdb_ci",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "mac_address",
+                    "targets": [
+                        {
+                            "datatype": "",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "mac_address",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "<calculated nic>",
+                    "targets": [
+                        {
+                            "condition": {
+                                "else": {
+                                    "mapType": "skip"
+                                },
+                                "if": "root_class",
+                                "in": [
+                                    "ip_address"
+                                ],
+                                "then": {
+                                    "mapType": "derived",
+                                    "relation": {
+                                        "current": "child",
+                                        "idAttribute": "root_class",
+                                        "map": {
+                                            "mapType": "direct"
+                                        },
+                                        "options": [
+                                            {
+                                                "attribute": "name",
+                                                "condition": ""
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "hpcrct"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "firewall"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "lb"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "hpproxy"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "router"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "nt"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "vmware_esx_server"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "unix"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "host_node"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "switch"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "enclosure"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "terminalserver"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "hpvoicegateway"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "netdevice"
+                                            },
+                                            {
+                                                "attribute": "name",
+                                                "condition": "ip_address"
+                                            }
+                                        ],
+                                        "type": "containment"
+                                    }
+                                }
+                            },
+                            "datatype": "",
+                            "endpoint": "attributes",
+                            "mapType": "conditional",
+                            "name": "nic",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "ip_nettype",
+                    "targets": [
+                        {
+                            "datatype": "",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "ip_version",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "datatype": "string",
+                    "elementType": "attribute",
+                    "name": "name",
+                    "targets": [
+                        {
+                            "datatype": "string",
+                            "endpoint": "attributes",
+                            "mapType": "direct",
+                            "name": "u_host_name",
+                            "required": false,
+                            "solution": "servicenow"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "node",
+                    "elementType": "relationship",
+                    "parentItemType": "storagearray",
+                    "sourceRelationshipType": "dependency",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Depends on::Used by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "unix",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "nt",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "host_node",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "lb",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "netdevice",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "router",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "switch",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "terminalserver",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                },
+                {
+                    "childItemType": "ip_address",
+                    "elementType": "relationship",
+                    "parentItemType": "vmware_esx_server",
+                    "sourceRelationshipType": "containment",
+                    "targets": [
+                        {
+                            "childIdKey": "ci_id",
+                            "endpoint": {
+                                "include": {
+                                    "child": true,
+                                    "parent": false
+                                },
+                                "key": "relationships",
+                                "keyType": "array",
+                                "location": "insideItems",
+                                "type": "parent"
+                            },
+                            "parentIdKey": "ci_id",
+                            "relationshipType": "Contains::Contained by",
+                            "solution": "servicenow",
+                            "typeKey": "type"
+                        }
+                    ]
+                }
+            ],
+            "solution": "ucmdb-itam",
+            "source": "ucmdb-itam",
+            "targetDetails": {},
+            "usecase": "",
+            "version": ""
+        },
+        "source": "ucmdb-itamITAM to PDXC Servicenow"
+    }
+]

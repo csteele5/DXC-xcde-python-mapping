@@ -1,0 +1,50 @@
+[
+    {
+        "integration": "ITAM to PDXC Servicenow",
+        "source": "ucmdb-itam",
+        "usecases": [
+            {
+                "target": "servicenow",
+                "targetDetails": {
+                    "filter": {
+                        "attribute": "root_class",
+                        "condition": "include",
+                        "matchingValues": [
+                            "hpcrct",
+                            "firewall",
+                            "netdevice",
+                            "lb",
+                            "netdevice",
+                            "hpproxy",
+                            "router",
+                            "netdevice",
+                            "netdevice",
+                            "nt",
+                            "vmware_esx_server",
+                            "unix",
+                            "host_node",
+                            "switch",
+                            "enclosure",
+                            "netdevice",
+                            "terminalserver",
+                            "hpvoicegateway",
+                            "netdevice",
+                            "ip_address"
+                        ]
+                    },
+                    "include": {
+                        "idAtRoot": true,
+                        "nameAtRoot": true,
+                        "otherAtRoot": "key",
+                        "typeAtRoot": true
+                    },
+                    "targetItemIdAttribute": "ci_id",
+                    "targetItemNameAttribute": "ciName",
+                    "targetItemTypeAttribute": "sys_class_name"
+                },
+                "usecase": "itam-sync-test",
+                "version": "1.0"
+            }
+        ]
+    }
+]

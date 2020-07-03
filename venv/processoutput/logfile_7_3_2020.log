@@ -1,0 +1,32 @@
+[INFO] - File location: processqueue/PDXC_ITAM_CIs_Attr_Rel_Mapping.xlsx
+[INFO] - Getting mapping configuration 
+[INFO] - Attributes sheet: Attributes
+[INFO] - CI Types sheet: CI Types
+[INFO] - Relationships sheet: Relationships
+[INFO] - Enum sheet: Choice List
+[INFO] - Attributes Filters: 
+[
+    {
+        "Column": "XCDE Y/N",
+        "value": "Y"
+    }
+][INFO] - CI Types Filters: 
+[
+    {
+        "Column": "XCDE Y/N",
+        "value": "Y"
+    }
+][INFO] - Relationships Filters: 
+[
+    {
+        "Column": "XCDE API Y/N/O",
+        "value": "Y"
+    }
+][INFO] - ENUM Filters: 
+[
+    {
+        "Column": "XCDE API Y/N",
+        "value": "Y"
+    }
+][INFO] - Opening sheets
+[INFO] - Process sheet: Choice List
